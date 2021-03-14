@@ -1,11 +1,11 @@
 component: aws-dynamodb
-name: database
+name: db-users
 
 inputs:
-  name: ${name}-${stage}
+  name: commoners-help-${name}-${stage}
   region: us-east-1
   # Don't delete the Database Table if "serverless remove" is run
-  deletionPolicy: retain
+  # deletionPolicy: retain
   # Simple, single-table design
   attributeDefinitions:
     - AttributeName: hk
