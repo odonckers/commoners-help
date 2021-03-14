@@ -1,5 +1,5 @@
 {
-  "name": "serverless-fullstack-app-website",
+  "name": "commoners-help-site",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -13,6 +13,14 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.3"
   },
+  "devDependencies": {
+    "@types/jest": "^26.0.15",
+    "@types/js-cookie": "^2.2.6",
+    "@types/node": "^12.0.0",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@types/react-router-dom": "^5.1.7"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -20,7 +28,10 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
   "browserslist": {
     "production": [
