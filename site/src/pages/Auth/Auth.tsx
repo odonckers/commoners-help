@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useState, useEffect } from "react"
 import { Link, withRouter } from "react-router-dom"
-import { Loading } from "../../fragments"
+import { Loading } from "../../components"
 import { userRegister, userLogin, userGet, saveSession } from "../../utils"
 import styles from "./Auth.module.css"
 
