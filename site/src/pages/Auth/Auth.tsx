@@ -77,7 +77,11 @@ const AuthPage: FunctionComponent<AuthProps> = (props) => {
     // Fetch user record and set session in cookie
     let user = await userGet(token.token)
     user = user.user
-    saveSession(user.id, user.email, token.token)
+    saveSession({
+      userId: user.id,
+      userEmail: user.email,
+      userToken: token.token,
+    })
 
     window.location.replace("/")
   }
