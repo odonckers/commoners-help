@@ -22,3 +22,5 @@ export const Loading: FunctionComponent<LoadingProps> = (props) => {
     </div>
   )
 }
+
+export default Loading

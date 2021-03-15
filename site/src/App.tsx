@@ -1,7 +1,7 @@
 import React, { ComponentType } from "react"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 import { Auth, Dashboard, Home } from "./pages"
-import { getSession } from "./utils"
+import { getSession } from "./services/session"
 
 const App = () => {
   return (

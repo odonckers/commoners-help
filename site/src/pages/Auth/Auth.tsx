@@ -1,14 +1,15 @@
 import React, { FunctionComponent, useState, useEffect } from "react"
 import { Link, withRouter } from "react-router-dom"
 import { Loading } from "../../components"
-import { userRegister, userLogin, userGet, saveSession } from "../../utils"
+import { users } from "../../services/api"
+import { saveSession } from "../../services/session"
 import styles from "./Auth.module.css"
 
 type AuthProps = {
   history: any
 }
 
-const AuthPage: FunctionComponent<AuthProps> = (props) => {
+const Auth: FunctionComponent<AuthProps> = (props) => {
   const pathName = window.location.pathname.replace("/", "")
 
   const [state, setState] = useState(pathName)
@@ -57,9 +58,9 @@ const AuthPage: FunctionComponent<AuthProps> = (props) => {
     let token
     try {
       if (state === "register") {
-        token = await userRegister(formEmail, formPassword)
+        token = await users.register(formEmail, formPassword)
       } else {
-        token = await userLogin(formEmail, formPassword)
+        token = await users.login(formEmail, formPassword)
       }
     } catch (error) {
       console.log(error)
@@ -75,7 +76,7 @@ const AuthPage: FunctionComponent<AuthProps> = (props) => {
     }
 
     // Fetch user record and set session in cookie
-    let user = await userGet(token.token)
+    let user = await users.fetch(token.token)
     user = user.user
     saveSession({
       userId: user.id,
@@ -201,4 +202,4 @@ const AuthPage: FunctionComponent<AuthProps> = (props) => {
   )
 }
 
-export const Auth = withRouter(AuthPage)
+export default withRouter(Auth)

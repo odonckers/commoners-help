@@ -1,13 +1,13 @@
 import React, { FunctionComponent, useEffect, useState } from "react"
 import { withRouter } from "react-router-dom"
-import { getSession, deleteSession, SiteSession } from "../../utils"
+import { getSession, deleteSession, SiteSession } from "../../services/session"
 import styles from "./Dashboard.module.css"
 
 type DashboardProps = {
   history: any
 }
 
-const DashboardPage: FunctionComponent<DashboardProps> = (props) => {
+const Dashboard: FunctionComponent<DashboardProps> = (props) => {
   const [session, setSession] = useState<SiteSession | null>()
 
   useEffect(() => {
@@ -55,4 +55,4 @@ const DashboardPage: FunctionComponent<DashboardProps> = (props) => {
   )
 }
 
-export const Dashboard = withRouter(DashboardPage)
+export default withRouter(Dashboard)

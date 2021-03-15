@@ -4,7 +4,7 @@ import styles from "./Home.module.css"
 
 type HomeProps = {}
 
-const HomePage: FunctionComponent<HomeProps> = (props) => {
+const Home: FunctionComponent<HomeProps> = (props) => {
   return (
     <div className={`${styles.container} animateFadeIn`}>
       <div className={styles.containerInner}>
@@ -48,4 +48,4 @@ const HomePage: FunctionComponent<HomeProps> = (props) => {
   )
 }
 
-export const Home = withRouter(HomePage)
+export default withRouter(Home)

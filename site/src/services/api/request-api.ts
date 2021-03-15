@@ -1,45 +1,8 @@
 /**
- * Utils: Back-end
+ * API Service: Request API
  */
 
-import { domains } from "../config"
-
-/**
- * Register a new user
- *
- * @param {string} email
- * @param {string} password
- */
-export const userRegister = async (
-  email: string,
-  password: string,
-): Promise<any> => {
-  return await requestApi("/users/register", "POST", { email, password })
-}
-
-/**
- * Login a new user
- *
- * @param {string} email
- * @param {string} password
- */
-export const userLogin = async (
-  email: string,
-  password: string,
-): Promise<any> => {
-  return await requestApi("/users/login", "POST", { email, password })
-}
-
-/**
- * userGet
- *
- * @param {string} token
- */
-export const userGet = async (token: string): Promise<any> => {
-  return await requestApi("/user", "POST", null, {
-    Authorization: `Bearer ${token}`,
-  })
-}
+import { domains } from "../../config"
 
 /**
  * API request to call the backend
@@ -88,3 +51,5 @@ export const requestApi = async (
 
   return await response.json()
 }
+
+export default { requestApi }
