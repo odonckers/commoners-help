@@ -16,9 +16,9 @@ export const saveSession = (session: SiteSession) => {
 }
 
 /**
- * Get session in browser cookie
+ * Fetch session in browser cookie
  */
-export const getSession = (): SiteSession | null => {
+export const fetchSession = (): SiteSession | null => {
   const data = Cookies.get("serverless")
   return data ? JSON.parse(data) : null
 }

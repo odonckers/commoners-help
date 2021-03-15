@@ -1,7 +1,7 @@
 import React, { ComponentType } from "react"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 import { Auth, Dashboard, Home } from "./pages"
-import { getSession } from "./services/session"
+import { fetchSession } from "./services/session"
 
 const App = () => {
   return (
@@ -32,7 +32,7 @@ const PrivateRoute = ({
   component: ComponentType
   [x: string]: any
 }) => {
-  const session = getSession()
+  const session = fetchSession()
   const finalComponent = session ? Dashboard : Home
 
   return <Route {...options} component={finalComponent} />

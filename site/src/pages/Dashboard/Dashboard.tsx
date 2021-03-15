@@ -1,6 +1,10 @@
 import React, { FunctionComponent, useEffect, useState } from "react"
 import { withRouter } from "react-router-dom"
-import { getSession, deleteSession, SiteSession } from "../../services/session"
+import {
+  fetchSession,
+  deleteSession,
+  SiteSession,
+} from "../../services/session"
 import styles from "./Dashboard.module.css"
 
 type DashboardProps = {
@@ -11,7 +15,7 @@ const Dashboard: FunctionComponent<DashboardProps> = (props) => {
   const [session, setSession] = useState<SiteSession | null>()
 
   useEffect(() => {
-    const userSession = getSession()
+    const userSession = fetchSession()
     setSession(userSession)
   }, [])
 
