@@ -66,3 +66,5 @@ export const parseHashFragment = (
 
   return hashData
 }
+
+export default { formatOrgAndUsername, parseQueryParams, parseHashFragment }
